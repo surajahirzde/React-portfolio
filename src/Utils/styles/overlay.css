@@ -1,0 +1,78 @@
+.FixedImage {
+  margin-top: 3rem;
+  width: 100%;
+  height: clamp(200px, 100vh, 300px);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.CardContainer {
+  max-width: 1200px;
+  margin: auto;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.CardContainer .scrollTrack {
+  height: 1500px;
+  transform: translateY(20%);
+  animation: scrollTop 20s linear infinite;
+}
+@keyframes scrollTop {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20%);
+  }
+  40% {
+    transform: translateY(-40%);
+  }
+  60% {
+    transform: translateY(-60%);
+  }
+  80% {
+    transform: translateY(-80%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.CardContainer .card {
+  width: 80%;
+  height: 300px;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.CardContainer .card h1 {
+  font-size: clamp(1.2rem, 2.5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.CardContainer .card p {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 500;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+.CardContainer .card a {
+  max-width: 150px;
+  width: 100%;
+  display: block;
+  margin: auto;
+  background-color: #09a3c6;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  border-radius: 2rem;
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  border: none;
+  outline: none;
+}

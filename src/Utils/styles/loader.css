@@ -1,0 +1,14 @@
+.loader {
+  background-color:#080615;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+}
+.loader img{height: 250px;
+width: 250px;
+}

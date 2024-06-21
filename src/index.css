@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+:root {
+  --color-primary: #191d2b;
+  --color-secondary: #b91f14;
+  --off-white: #f1f1f1;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 200vh;
+  background-color: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+.gap-sm {
+  gap: 1rem;
+}
+.gap-md {
+  gap: 1.5rem;
+}
+.gap-lg {
+  gap: 2rem;
+}
+.gap-xl {
+  gap: 3rem;
+}
+.gap-xxl {
+  gap: 5rem;
+}
+.gap-custom {
+  --gapVal: 1;
+  gap: calc(var(--gapVal) * 1rem);
+}
+.grid {
+  display: grid;
+}
+.grid-col-2 {
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+.wrapper {
+  max-width: 1400px;
+  margin-inline: auto;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  .grid-col-2 {
+    grid-template-columns: 1fr;
+  }
+}
