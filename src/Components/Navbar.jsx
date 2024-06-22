@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { navLinks } from "../Helper/Constant.jsx";
 import "./styles/navbar.css";
 import { useEffect, useState } from "react";
@@ -21,9 +21,9 @@ const Navbar = () => {
   return (
     <nav className={navActive ? "active" : ""}>
       <div className="wrapper flex align-center justify-between">
-        <div className="logo">
+        <Link to={"/"} className="logo">
           <span>SY</span>
-        </div>
+        </Link>
         <div
           className={`menuLink flex align-center gap-lg ${
             isMobile && "active"

@@ -1,33 +1,35 @@
-.sideBar{
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    z-index: 99;
-    width: 100px;
-    background-color: #ffffff;
+.sideBar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  transform: translateY(0%);
+  z-index: 99;
+  width: 100px;
+  background-color: #ffffff;
 }
-.sideBar .sideBarLinks{
-    height: 100%;
+.sideBar .sideBarLinks {
+  height: 100%;
+  width: 100%;
+}
+.sideBar .sideBarLinks a {
+  transition: 0.5s;
+}
+.sideBar .sideBarLinks a:hover {
+  transform: translateY(-10px);
+}
+.sideBar .sideBarLinks a svg {
+  font-size: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .sideBar {
+    bottom: 0;
+    top: unset;
+    height: 70px;
     width: 100%;
-}
-.sideBar .sideBarLinks a{
-    transition: 0.5s;
-}
-.sideBar .sideBarLinks a:hover{
-    transform: translateY(-10px);
-}
-.sideBar .sideBarLinks a svg{
-    font-size: 2rem;
-}
-@media screen and (max-width:768px) {
-    .sideBar {
-        bottom: 0;
-        top: unset;
-        height: 70px;
-        width: 100%;
-    }
-    .sideBar .sideBarLinks{
-        flex-direction: row;
-    }
+    transform: none;
+  }
+  .sideBar .sideBarLinks {
+    flex-direction: row;
+  }
 }

@@ -24,9 +24,17 @@ import ipFinder from "../assets/ipFinder.png";
 import travelImg from "../assets/travelProject.png";
 import eCommerseImg from "../assets/shopZ.png";
 import youtubeImg from "../assets/youtube.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Iframe from "../Utils/Iframe";
 const Home = () => {
+  useEffect(() => {
+    const title=document.title
+    document.title="Suraj Yadav || Mern-Stack developer"
+    window.scrollTo(0,0)
+    return ()=>{
+      document.title = title
+    }
+  }, []);
   const technology = [
     {
       name: "React.Js",

@@ -1,5 +1,5 @@
 .loader {
-  background-color:#080615;
+  background-color:#eaeaea;
   position: absolute;
   top: 0;
   left: 0;
@@ -8,7 +8,5 @@
   z-index: 10;
   display: grid;
   place-items: center;
-}
-.loader img{height: 250px;
-width: 250px;
+  color: #050505;
 }

@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import SideBar from "../Utils/SideBar";
 import WhatsApp from "../Utils/WhatsApp";
 import CallMe from "../Utils/CallMe";
+import Footer from "../Components/Footer";
 
 const RootLayout = () => {
   return (
@@ -12,6 +13,7 @@ const RootLayout = () => {
       <SideBar />
       <CallMe />
       <WhatsApp />
+      <Footer />
       {/* <Footer /> */}
     </div>
   );
