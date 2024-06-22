@@ -213,7 +213,7 @@ const Home = () => {
       </section>
       <section className="services">
         <h2>Services</h2>
-        <div className="grid grid-col-2">
+        <div className="grid grid-col-2 gap-lg">
           <div className="imageContainer">
             <img src={servicesImg} alt="My Web Related Services" />
           </div>

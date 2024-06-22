@@ -1,0 +1,28 @@
+.whatsapp {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999933;
+}
+@keyframes animate {
+  0% {
+    box-shadow: 0 0 0 0 #fff, 0 0 0 0 transparent, 0 0 #25d366;
+  }
+  100% {
+    box-shadow: 0 0 0 5px transparent, 0 0 0 10px transparent,
+      0 0 0 15px transparent;
+  }
+}
+.whatsapp a {
+  border-radius: 50%;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  display: grid;
+  place-items: center;
+  padding: 0.2rem;
+  animation: animate 2s linear infinite;
+}
+@media screen and (max-width: 768px) {
+  .whatsapp {
+   bottom: 1.5rem;
+  }
+}

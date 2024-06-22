@@ -76,3 +76,8 @@
   border: none;
   outline: none;
 }
+@media  screen and (max-width:768px) {
+  .CardContainer .card {
+    width: 100%;
+  }
+}

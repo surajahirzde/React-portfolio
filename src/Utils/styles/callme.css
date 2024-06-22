@@ -1,0 +1,29 @@
+.callme {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 88983;
+}
+.callme a{
+    font-size: clamp(1.5rem,3vw,2rem);
+    color: rgb(19, 148, 228);
+    animation: animate-2 2s infinite linear;
+    border-radius: 50%;
+    display: grid;
+    padding: 0.2rem;
+    place-items: center;
+}
+@keyframes animate-2 {
+    0% {
+      box-shadow: 0 0 #fff, 0 0  transparent, 0 0 rgb(19, 148, 228);
+    }
+    100% {
+      box-shadow: 0 0 0 5px transparent, 0 0 0 10px transparent,
+        0 0 0 15px transparent;
+    }
+  }
+@media screen and (max-width:768px) {
+    .callme{
+        bottom: 1.5rem;
+    }
+}

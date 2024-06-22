@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./styles/overlay.css";
-import { Link, useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 const OverLay = ({ image }) => {
   return (
     <div

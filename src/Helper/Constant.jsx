@@ -34,7 +34,7 @@ export const sideBarLinks = [
   {
     name: "LinkedIn",
     path: "https://www.linkedin.com/in/suraj-yadav-79254b250/",
-    icon: <FaLinkedin color="blue" />,
+    icon: <FaLinkedin color="rgb(19, 148, 228)" />,
   },
 ];
 export class TextChanger {
