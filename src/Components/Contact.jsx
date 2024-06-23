@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles/contact.css"; // Import the CSS file
+import Loader from "../Utils/Loader";
 
 const ContactForm = () => {
   const [email, setEmail] = useState("");
@@ -7,8 +8,13 @@ const ContactForm = () => {
   const [phone, setPhone] = useState("");
   const [contactMethod, setContactMethod] = useState("");
   const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState(false);
+  const filterInputStringToPreventSQLInjection = (input) => {
+    return input.replace(/[^a-zA-Z0-9\s.@*#$%]/g, "");
+  };
 
   const sendMail = (e) => {
+    setLoader(true);
     e.preventDefault();
     fetch("https://addacollege.com/api/myRoute/sendMail", {
       method: "POST",
@@ -16,15 +22,26 @@ const ContactForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email,
-        name: name,
-        phone: phone,
-        contactMethod: contactMethod,
-        message: message,
+        email: filterInputStringToPreventSQLInjection(email),
+        name: filterInputStringToPreventSQLInjection(name),
+        phone: filterInputStringToPreventSQLInjection(phone),
+        contactMethod: filterInputStringToPreventSQLInjection(contactMethod),
+        message: filterInputStringToPreventSQLInjection(message),
       }),
     })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => res.json())
+      .then(
+        (res) => (
+          res.code === 200 && alert("Enquiry Received successfully"),
+          setName(""),
+          setEmail(""),
+          setPhone(""),
+          setContactMethod(""),
+          setMessage("")
+        )
+      )
+      .catch((err) => console.log(err))
+      .finally(() => setLoader(false));
   };
   return (
     <main className="wrapper">
@@ -176,11 +193,12 @@ const ContactForm = () => {
             required
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
-          <button className="form-submit" type="submit">
+          <button className="form-submit" type="submit" disabled={loader}>
             Send
           </button>
         </form>
       </div>
+      {loader && <Loader />}
     </main>
   );
 };
