@@ -1,6 +1,31 @@
+import { useState } from "react";
 import "./styles/contact.css"; // Import the CSS file
 
 const ContactForm = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [contactMethod, setContactMethod] = useState("");
+  const [message, setMessage] = useState("");
+
+  const sendMail = (e) => {
+    e.preventDefault();
+    fetch("https://addacollege.com/api/myRoute/sendMail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        phone: phone,
+        contactMethod: contactMethod,
+        message: message,
+      }),
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <main className="wrapper">
       <div className="grid grid-col-2 gap-lg contact-section">
@@ -84,19 +109,44 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="form-container">
+        <form onSubmit={sendMail} className="form-container">
           <h2 className="form-title">Send Us A Message</h2>
-          <input type="text" className="form-input" placeholder="Name" />
-          <input type="text" className="form-input" placeholder="Email" />
-          <input type="text" className="form-input" placeholder="Phone" />
+          <input
+            type="text"
+            className="form-input"
+            placeholder="Name"
+            pattern="[a-zA-Z\s]*"
+            required
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            required
+            className="form-input"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="tel"
+            required
+            pattern="[0-9]{10}"
+            className="form-input"
+            placeholder="Phone"
+            onChange={(e) => setPhone(e.target.value)}
+          />
           <div className="form-method">
             <h4 className="form-subtitle">Preferred method of communication</h4>
-            <div className="form-radio-group" style={{marginBlock:"1rem"}}>
+            <div className="form-radio-group" style={{ marginBlock: "1rem" }}>
               <div className="form-radio-item">
                 <input
                   id="radio-group-1"
                   type="radio"
+                  value={"email"}
+                  required
                   name="radio-group"
+                  checked={contactMethod === "email"}
+                  onChange={(e) => setContactMethod(e.target.value)}
                   className="form-radio"
                 />
                 <label htmlFor="radio-group-1" className="form-radio-label">
@@ -107,6 +157,10 @@ const ContactForm = () => {
                 <input
                   id="radio-group-2"
                   type="radio"
+                  required
+                  value={"phone"}
+                  checked={contactMethod === "phone"}
+                  onChange={(e) => setContactMethod(e.target.value)}
                   name="radio-group"
                   className="form-radio"
                 />
@@ -116,11 +170,16 @@ const ContactForm = () => {
               </div>
             </div>
           </div>
-          <textarea className="form-textarea" placeholder="Message"></textarea>
+          <textarea
+            className="form-textarea"
+            placeholder="Message"
+            required
+            onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
           <button className="form-submit" type="submit">
             Send
           </button>
-        </div>
+        </form>
       </div>
     </main>
   );
