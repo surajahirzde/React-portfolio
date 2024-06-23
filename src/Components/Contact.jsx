@@ -32,12 +32,12 @@ const ContactForm = () => {
       .then((res) => res.json())
       .then(
         (res) => (
-          res.code === 200 && alert("Enquiry Received successfully"),
-          setName(""),
-          setEmail(""),
-          setPhone(""),
-          setContactMethod(""),
-          setMessage("")
+          res.code === 200 && alert("Message sent successfully"),
+          res.code === 200 &&  setName(""),
+          res.code === 200 &&  setEmail(""),
+          res.code === 200 &&  setPhone(""),
+          res.code === 200 &&  setContactMethod(""),
+          res.code === 200 &&  setMessage("")
         )
       )
       .catch((err) => console.log(err))
